@@ -46,9 +46,8 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0F172A]">
-      {/* Top accent */}
-      <div className="h-[3px] bg-[#C9A227]" />
+    <footer className="bg-[#03071E]">
+      <div className="h-[3px] bg-[#E85D04]" />
 
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -57,9 +56,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-[#1E3A5F] border border-[#C9A227]/30 flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-lg bg-[#0A2463] border border-[#E85D04]/30 flex items-center justify-center flex-shrink-0">
                 <span
-                  className="text-[#C9A227] font-bold text-lg"
+                  className="text-[#E85D04] font-bold text-lg"
                   style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
                 >
                   N
@@ -72,7 +71,7 @@ export default function Footer() {
                 >
                   Naksh Global
                 </span>
-                <span className="text-[#C9A227] text-[10px] font-semibold tracking-[0.12em] uppercase">
+                <span className="text-[#E85D04] text-[10px] font-semibold tracking-[0.12em] uppercase">
                   Visa & Immigration
                 </span>
               </div>
@@ -97,7 +96,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-[#1E3A5F] border border-[#1E3A5F] flex items-center justify-center text-[#64748B] hover:text-[#C9A227] hover:border-[#C9A227]/30 transition-all"
+                  className="w-9 h-9 rounded-lg bg-[#0A2463] border border-[#0A2463] flex items-center justify-center text-[#9CA3AF] hover:text-[#E85D04] hover:border-[#E85D04]/30 transition-all"
                 >
                   <Icon />
                 </a>
@@ -118,7 +117,7 @@ export default function Footer() {
                 <li key={link.title}>
                   <Link
                     href={link.href}
-                    className="text-[#64748B] hover:text-[#C9A227] text-sm transition-colors"
+                    className="text-[#9CA3AF] hover:text-[#E85D04] text-sm transition-colors"
                   >
                     {link.title}
                   </Link>
@@ -140,7 +139,7 @@ export default function Footer() {
                 <li key={link.title}>
                   <Link
                     href={link.href}
-                    className="text-[#64748B] hover:text-[#C9A227] text-sm transition-colors"
+                    className="text-[#9CA3AF] hover:text-[#E85D04] text-sm transition-colors"
                   >
                     {link.title}
                   </Link>
@@ -163,7 +162,7 @@ export default function Footer() {
                   href="tel:+919876543210"
                   className="flex items-start gap-3 text-[#64748B] hover:text-white transition-colors group"
                 >
-                  <Phone className="w-4 h-4 text-[#C9A227] mt-0.5 flex-shrink-0" />
+                  <Phone className="w-4 h-4 text-[#E85D04] mt-0.5 flex-shrink-0" />
                   <span className="text-sm">+91 98765 43210</span>
                 </a>
               </li>
@@ -172,13 +171,13 @@ export default function Footer() {
                   href="mailto:contact@nakshglobalvisa.com"
                   className="flex items-start gap-3 text-[#64748B] hover:text-white transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-[#C9A227] mt-0.5 flex-shrink-0" />
+                  <Mail className="w-4 h-4 text-[#E85D04] mt-0.5 flex-shrink-0" />
                   <span className="text-sm">contact@nakshglobalvisa.com</span>
                 </a>
               </li>
               <li>
                 <div className="flex items-start gap-3 text-[#64748B]">
-                  <MapPin className="w-4 h-4 text-[#C9A227] mt-0.5 flex-shrink-0" />
+                  <MapPin className="w-4 h-4 text-[#E85D04] mt-0.5 flex-shrink-0" />
                   <span className="text-sm">
                     3rd Floor, Prestige Tower,
                     <br />
@@ -193,7 +192,7 @@ export default function Footer() {
             {/* Book CTA */}
             <Link
               href="/free-assessment"
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#C9A227] text-[#0F172A] rounded-lg text-sm font-bold hover:bg-[#B08820] transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#E85D04] text-white rounded-lg text-sm font-bold hover:bg-[#C44B00] transition-colors"
               style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
             >
               <CalendarCheck className="w-4 h-4" />
@@ -204,7 +203,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-[#1E3A5F]">
+      <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[#475569] text-xs">
             © 2025 Naksh Global Visa. All rights reserved. IATA Registered.

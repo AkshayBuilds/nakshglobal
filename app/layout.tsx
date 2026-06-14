@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import LoadingScreen from "@/components/LoadingScreen";
+import PageTransition from "@/components/PageTransition";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -104,9 +106,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} bg-[#F8FAFC] text-[#111827] antialiased`}>
+      <body className={`${inter.className} bg-[#F9FAFB] text-[#111827] antialiased`}>
+        <LoadingScreen />
         <Navbar />
-        <main>{children}</main>
+        <main>
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
         <WhatsAppButton />
       </body>

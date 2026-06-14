@@ -15,25 +15,26 @@ const iconMap = {
 
 export default function WhyChooseUs() {
   return (
-    <section className="section-padding bg-[#F8FAFC]">
+    <section className="section-padding bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16"
         >
-          <div className="section-label mx-auto mb-4">Why Naksh Global Visa</div>
-          <h2 className="heading-lg">
-            Why Clients Choose Us
-          </h2>
-          <p className="body-md max-w-2xl mx-auto mt-4 text-[#334155]">
-            We combine deep expertise with genuine care to provide immigration guidance that is honest,
-            thorough, and tailored to each individual case.
+          <div>
+            <p className="text-[#E85D04] text-xs font-bold tracking-[0.15em] uppercase mb-3">
+              Why Naksh Global
+            </p>
+            <h2 className="heading-lg">Why clients choose us</h2>
+          </div>
+          <p className="body-md max-w-sm lg:text-right text-[#6B7280]">
+            Deep expertise. Genuine care. Honest advice — even when it&apos;s not what you hoped to hear.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 divide-x-0 md:divide-x divide-[#E5E7EB] border border-[#E5E7EB] rounded-xl overflow-hidden">
           {WHY_CHOOSE_US.map((item, i) => {
             const Icon = iconMap[item.icon as keyof typeof iconMap];
             return (
@@ -43,22 +44,24 @@ export default function WhyChooseUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group bg-white rounded-xl border border-[#E2E8F0] p-6 hover:border-[#C9A227]/25 hover:shadow-[0_4px_24px_rgba(15,23,42,0.08)] transition-all duration-300 flex gap-5"
+                className="p-8 hover:bg-[#F9FAFB] transition-colors group relative"
               >
-                {/* Icon */}
-                <div className="w-11 h-11 rounded-lg bg-[#0F172A] flex items-center justify-center flex-shrink-0 mt-0.5">
-                  {Icon && <Icon className="w-5 h-5 text-[#C9A227]" />}
+                <div
+                  className="text-[64px] font-black text-[#0A2463]/[0.04] leading-none absolute top-4 right-6 select-none"
+                  style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
+                >
+                  {String(i + 1).padStart(2, "0")}
                 </div>
-                {/* Content */}
-                <div>
-                  <h3
-                    className="text-base font-bold text-[#0F172A] mb-2"
-                    style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className="text-[#64748B] text-sm leading-relaxed">{item.description}</p>
+                <div className="w-10 h-10 rounded-lg bg-[#0A2463] flex items-center justify-center mb-6">
+                  {Icon && <Icon className="w-5 h-5 text-[#E85D04]" />}
                 </div>
+                <h3
+                  className="font-bold text-[#111827] text-base mb-2"
+                  style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-[#6B7280] text-sm leading-relaxed">{item.description}</p>
               </motion.div>
             );
           })}

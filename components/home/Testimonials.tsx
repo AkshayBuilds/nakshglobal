@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, ChevronLeft, ChevronRight, CheckCircle2, MapPin } from "lucide-react";
+import { ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
 import { TESTIMONIALS } from "@/lib/constants";
 
 export default function Testimonials() {
@@ -12,71 +12,61 @@ export default function Testimonials() {
   const next = () => setCurrent((c) => (c + 1) % TESTIMONIALS.length);
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-[#F9FAFB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16"
         >
-          <div className="section-label mx-auto mb-4">Success Stories</div>
-          <h2 className="heading-lg">
-            Clients We&apos;ve Helped
-          </h2>
-          <p className="body-md max-w-2xl mx-auto mt-4 text-[#334155]">
-            Real experiences from real clients who trusted us with their immigration journey.
-          </p>
+          <div>
+            <div className="section-label mb-4">Success Stories</div>
+            <h2 className="heading-lg">Clients we&apos;ve helped</h2>
+          </div>
+          <p className="text-[#9CA3AF] text-sm">Real people. Real approvals.</p>
         </motion.div>
 
-        {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-3 gap-6 mb-12">
+        <div className="hidden md:grid grid-cols-3 gap-6 items-start">
           {TESTIMONIALS.slice(0, 3).map((t, i) => (
             <motion.div
               key={t.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="bg-[#F8FAFC] rounded-xl border border-[#E2E8F0] p-6 hover:border-[#C9A227]/20 hover:bg-white hover:shadow-[0_4px_24px_rgba(15,23,42,0.08)] transition-all duration-300"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              style={{ marginTop: i === 1 ? 32 : i === 2 ? 16 : 0 }}
+              className="bg-white rounded-xl border border-[#E5E7EB] p-6 hover:border-[#E85D04]/20 hover:shadow-lg transition-all duration-300"
             >
-              {/* Visa type badge */}
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0F172A] text-[#C9A227] text-xs font-semibold"
-                  style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
-                >
-                  <CheckCircle2 className="w-3 h-3" />
-                  {t.visaType} — Approved
-                </div>
-                {/* Stars */}
-                <div className="flex gap-0.5">
-                  {Array.from({ length: t.rating }).map((_, idx) => (
-                    <Star key={idx} className="w-3.5 h-3.5 text-[#C9A227] fill-[#C9A227]" />
-                  ))}
-                </div>
+              <div className="flex gap-0.5 mb-4">
+                {Array.from({ length: t.rating }).map((_, idx) => (
+                  <span key={idx} className="text-[#F77F00] text-sm">
+                    ★
+                  </span>
+                ))}
               </div>
-
-              {/* Quote */}
-              <p className="text-[#475569] text-sm leading-relaxed mb-6 italic">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0A2463] text-[#E85D04] text-xs font-bold mb-4">
+                <CheckCircle2 className="w-3 h-3" />
+                {t.visaType} — Approved
+              </div>
+              <p className="text-[#4B5563] text-sm leading-relaxed mb-6 italic">
                 &ldquo;{t.text}&rdquo;
               </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-3 pt-4 border-t border-[#E2E8F0]">
-                <div className="w-10 h-10 rounded-full bg-[#0F172A] flex items-center justify-center text-[#C9A227] font-bold text-sm flex-shrink-0"
+              <div className="flex items-center gap-3 pt-4 border-t border-[#E5E7EB]">
+                <div
+                  className="w-9 h-9 rounded-full bg-[#0A2463] flex items-center justify-center text-[#E85D04] font-bold text-xs flex-shrink-0"
                   style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
                 >
                   {t.avatar}
                 </div>
                 <div>
                   <div
-                    className="text-[#0F172A] font-semibold text-sm"
+                    className="font-semibold text-[#111827] text-sm"
                     style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
                   >
                     {t.name}
                   </div>
-                  <div className="text-[#94A3B8] text-xs flex items-center gap-1 mt-0.5">
-                    <MapPin className="w-3 h-3" />
+                  <div className="text-[#9CA3AF] text-xs mt-0.5">
                     {t.flag} {t.role}
                   </div>
                 </div>
@@ -85,42 +75,46 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Mobile Carousel */}
         <div className="md:hidden">
           <div className="relative overflow-hidden rounded-xl">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
-                className="bg-[#F8FAFC] rounded-xl border border-[#E2E8F0] p-6"
+                className="bg-white rounded-xl border border-[#E5E7EB] p-6"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0F172A] text-[#C9A227] text-xs font-semibold">
-                    <CheckCircle2 className="w-3 h-3" />
-                    {TESTIMONIALS[current].visaType} — Approved
-                  </div>
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: TESTIMONIALS[current].rating }).map((_, idx) => (
-                      <Star key={idx} className="w-3.5 h-3.5 text-[#C9A227] fill-[#C9A227]" />
-                    ))}
-                  </div>
+                <div className="flex gap-0.5 mb-4">
+                  {Array.from({ length: TESTIMONIALS[current].rating }).map((_, idx) => (
+                    <span key={idx} className="text-[#F77F00] text-sm">
+                      ★
+                    </span>
+                  ))}
                 </div>
-                <p className="text-[#475569] text-sm leading-relaxed mb-6 italic">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0A2463] text-[#E85D04] text-xs font-bold mb-4">
+                  <CheckCircle2 className="w-3 h-3" />
+                  {TESTIMONIALS[current].visaType} — Approved
+                </div>
+                <p className="text-[#4B5563] text-sm leading-relaxed mb-6 italic">
                   &ldquo;{TESTIMONIALS[current].text}&rdquo;
                 </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-[#E2E8F0]">
-                  <div className="w-10 h-10 rounded-full bg-[#0F172A] flex items-center justify-center text-[#C9A227] font-bold text-sm">
+                <div className="flex items-center gap-3 pt-4 border-t border-[#E5E7EB]">
+                  <div
+                    className="w-9 h-9 rounded-full bg-[#0A2463] flex items-center justify-center text-[#E85D04] font-bold text-xs"
+                    style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
+                  >
                     {TESTIMONIALS[current].avatar}
                   </div>
                   <div>
-                    <div className="text-[#0F172A] font-semibold text-sm">
+                    <div
+                      className="font-semibold text-[#111827] text-sm"
+                      style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
+                    >
                       {TESTIMONIALS[current].name}
                     </div>
-                    <div className="text-[#94A3B8] text-xs flex items-center gap-1 mt-0.5">
-                      <MapPin className="w-3 h-3" />
+                    <div className="text-[#9CA3AF] text-xs mt-0.5">
                       {TESTIMONIALS[current].flag} {TESTIMONIALS[current].role}
                     </div>
                   </div>
@@ -129,11 +123,10 @@ export default function Testimonials() {
             </AnimatePresence>
           </div>
 
-          {/* Carousel Controls */}
           <div className="flex justify-center gap-4 mt-6">
             <button
               onClick={prev}
-              className="w-10 h-10 rounded-lg border border-[#E2E8F0] bg-white flex items-center justify-center text-[#475569] hover:border-[#C9A227] hover:text-[#C9A227] transition-colors"
+              className="w-10 h-10 rounded-lg border border-[#E5E7EB] bg-white flex items-center justify-center text-[#4B5563] hover:border-[#E85D04] hover:text-[#E85D04] transition-colors"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -144,9 +137,7 @@ export default function Testimonials() {
                   key={i}
                   onClick={() => setCurrent(i)}
                   className={`rounded-full transition-all ${
-                    i === current
-                      ? "bg-[#C9A227] w-5 h-2"
-                      : "bg-[#E2E8F0] w-2 h-2"
+                    i === current ? "bg-[#E85D04] w-5 h-2" : "bg-[#E5E7EB] w-2 h-2"
                   }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
@@ -154,7 +145,7 @@ export default function Testimonials() {
             </div>
             <button
               onClick={next}
-              className="w-10 h-10 rounded-lg border border-[#E2E8F0] bg-white flex items-center justify-center text-[#475569] hover:border-[#C9A227] hover:text-[#C9A227] transition-colors"
+              className="w-10 h-10 rounded-lg border border-[#E5E7EB] bg-white flex items-center justify-center text-[#4B5563] hover:border-[#E85D04] hover:text-[#E85D04] transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5" />
