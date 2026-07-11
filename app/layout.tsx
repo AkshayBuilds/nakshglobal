@@ -4,8 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
-import LoadingScreen from "@/components/LoadingScreen";
 import PageTransition from "@/components/PageTransition";
+import PremiumExperience from "@/components/PremiumExperience";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Naksh Global Visa",
   },
   description:
-    "Naksh Global Visa is a trusted immigration consultancy in India. Professional guidance for Student Visa, Work Permit, and Visitor Visa across Canada, UK, Australia, USA, Germany & New Zealand. Transparent process, complete documentation support.",
+    "Naksh Global Visa is a trusted immigration consultancy in India. Professional guidance for Student Visa, Work Permit, and Visitor Visa across Canada, Australia, UK, USA, New Zealand, Dubai & Europe. Transparent process, complete documentation support.",
   keywords: [
     "visa consultancy",
     "immigration consultant India",
@@ -37,8 +37,12 @@ export const metadata: Metadata = {
     "UK visa",
     "Australia PR",
     "Germany student visa",
+    "Dubai study visa",
+    "France student visa",
+    "Ireland work permit",
+    "Europe immigration",
     "Naksh Global Visa",
-    "visa consultant Bangalore",
+    "visa consultant Ahmedabad",
   ],
   authors: [{ name: "Naksh Global Visa" }],
   creator: "Naksh Global Visa",
@@ -49,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "Naksh Global Visa",
     title: "Naksh Global Visa | Professional Immigration & Visa Consultancy",
     description:
-      "Professional visa and immigration consultancy. Expert guidance for Student Visa, Work Permit, and Visitor Visa across Canada, UK, Australia, USA, Germany & New Zealand.",
+      "Professional visa and immigration consultancy. Expert guidance for Student Visa, Work Permit, and Visitor Visa across Canada, Australia, UK, USA, New Zealand, Dubai & Europe.",
   },
   twitter: {
     card: "summary_large_image",
@@ -85,15 +89,15 @@ export default function RootLayout({
                 "Professional immigration and visa consultancy — expert guidance for students, families, and professionals seeking international opportunities.",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "3rd Floor, Prestige Tower, MG Road",
-                addressLocality: "Bangalore",
-                addressRegion: "Karnataka",
-                postalCode: "560001",
+                streetAddress: "Naroda",
+                addressLocality: "Ahmedabad",
+                addressRegion: "Gujarat",
+                postalCode: "382330",
                 addressCountry: "IN",
               },
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+91-98765-43210",
+                telephone: "+91-7600742894",
                 contactType: "customer service",
                 availableLanguage: ["English", "Hindi", "Gujarati"],
               },
@@ -107,7 +111,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} bg-[#F9FAFB] text-[#111827] antialiased`}>
-        <LoadingScreen />
+        <PremiumExperience />
         <Navbar />
         <main>
           <PageTransition>{children}</PageTransition>

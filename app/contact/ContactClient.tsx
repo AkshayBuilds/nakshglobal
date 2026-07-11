@@ -89,8 +89,7 @@ export default function ContactClient() {
               ) : (
                 <motion.form
                   initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  animate={{ opacity: 1, y: 0 }}
                   onSubmit={handleSubmit}
                   className="bg-white rounded-xl border border-[#E5E7EB] p-8 space-y-5"
                 >
@@ -172,7 +171,7 @@ export default function ContactClient() {
                 </h3>
 
                 <div className="space-y-5 mb-8">
-                  <a href="tel:+919876543210" className="flex items-start gap-4 group">
+                  <a href="tel:+917600742894" className="flex items-start gap-4 group">
                     <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
                       <Phone className="w-5 h-5 text-[#E85D04]" />
                     </div>
@@ -208,7 +207,7 @@ export default function ContactClient() {
                 </div>
 
                 <a
-                  href="https://wa.me/919876543210?text=Hi%20Naksh%20Global%20Visa%2C%20I%20need%20visa%20assistance."
+                  href="https://wa.me/917600742894?text=Hi%20Naksh%20Global%20Visa%2C%20I%20need%20visa%20assistance."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-lg bg-[#25D366]/20 border border-[#25D366]/30 hover:bg-[#25D366]/30 transition-all mb-8"
@@ -236,9 +235,8 @@ export default function ContactClient() {
                     >
                       <span className="text-white/50 text-sm">{h.day}</span>
                       <span
-                        className={`text-sm font-medium ${
-                          h.hours === "Closed" ? "text-[#FAAB40]" : "text-white"
-                        }`}
+                        className={`text-sm font-medium ${h.hours === "Closed" ? "text-[#FAAB40]" : "text-white"
+                          }`}
                       >
                         {h.hours}
                       </span>
@@ -281,11 +279,11 @@ export default function ContactClient() {
                 className="text-[#111827] font-semibold"
                 style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
               >
-                3rd Floor, Prestige Tower, MG Road
+                {ADDRESS}
               </p>
-              <p className="text-[#6B7280] text-sm">Bangalore – 560001, Karnataka, India</p>
+              <p className="text-[#6B7280] text-sm">Gujarat, India</p>
               <a
-                href="https://maps.google.com/?q=MG+Road+Bangalore"
+                href="https://maps.google.com/?q=Naroda+Ahmedabad"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-2 px-5 py-2 bg-[#FFF5E6] border border-[#FAAB40]/30 text-[#C44B00] rounded-lg text-sm font-medium hover:bg-[#FEE5C0] transition-all"

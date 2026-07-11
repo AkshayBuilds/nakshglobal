@@ -4,10 +4,10 @@ export const SITE_TAGLINE = "Your Trusted Partner for Global Opportunities";
 export const SITE_DESCRIPTION =
   "Naksh Global Visa is a premium immigration and visa consultancy helping students, professionals, and families navigate their global journey with expert guidance, transparency, and care.";
 export const SITE_URL = "https://www.nakshglobalvisa.com";
-export const WHATSAPP_NUMBER = "+919876543210";
-export const PHONE_NUMBER = "+91 98765 43210";
-export const EMAIL = "contact@nakshglobalvisa.com";
-export const ADDRESS = "3rd Floor, Prestige Tower, MG Road, Bangalore – 560001, Karnataka, India";
+export const WHATSAPP_NUMBER = "+917600742894";
+export const PHONE_NUMBER = "+91 7600742894";
+export const EMAIL = "info@nakshglobalvisa.com";
+export const ADDRESS = "Naroda, Ahmedabad";
 export const BUSINESS_HOURS = [
   { day: "Monday – Friday", hours: "9:00 AM – 7:00 PM" },
   { day: "Saturday", hours: "10:00 AM – 5:00 PM" },
@@ -31,7 +31,7 @@ export const SERVICES = [
     icon: "GraduationCap",
     shortDesc: "Study at top universities worldwide with expert visa guidance.",
     description:
-      "We help ambitious students get admission to top universities and secure student visas across Canada, UK, Australia, USA, Germany, and New Zealand.",
+      "We help ambitious students get admission to top universities and secure student visas across Canada, Australia, United Kingdom, United States, New Zealand, Dubai, and Europe.",
     color: "from-blue-600 to-blue-800",
     features: ["University Admission Assistance", "Visa Application Filing", "SOP & LOR Guidance", "Pre-Departure Support"],
     process: [
@@ -73,7 +73,7 @@ export const SERVICES = [
     icon: "Briefcase",
     shortDesc: "Build your career abroad with the right work authorization.",
     description:
-      "We assist skilled professionals and employer-sponsored candidates in obtaining work permits across Canada, UK, Germany, Australia, and more.",
+      "We assist skilled professionals and employer-sponsored candidates in obtaining work permits across Canada, Australia, United Kingdom, United States, New Zealand, Dubai, Europe, and more.",
     color: "from-emerald-600 to-emerald-800",
     features: ["Skilled Worker Programs", "Employer Sponsorship", "LMIA Assistance", "Post-Study Work Permits"],
     process: [
@@ -182,33 +182,6 @@ export const COUNTRIES = [
     visaProcess: ["Online Application on IRCC Portal", "Upload Documents", "Biometrics Enrollment", "Medical Examination", "Wait for Decision", "COPR / Visa Stamp"],
   },
   {
-    id: "uk",
-    name: "United Kingdom",
-    flag: "🇬🇧",
-    slug: "uk",
-    tagline: "Excellence Meets Tradition",
-    description: "The UK is home to some of the world's most prestigious universities and offers a Graduate Route visa that allows graduates to work for up to 2 years.",
-    heroColor: "from-blue-900 to-blue-800",
-    benefits: ["World-class education", "Graduate Route visa", "NHS healthcare", "Cultural diversity", "Strong financial hub", "English-speaking environment"],
-    studyOpportunities: {
-      summary: "The UK has 4 of the world's top 10 universities. International students can work 20 hours/week and access a 2-year Graduate Route post-study.",
-      highlights: ["Oxford, Cambridge, Imperial, UCL", "2-year Graduate Route visa", "Avg tuition: £15,000–35,000/year", "Part-time work during studies"],
-    },
-    workOpportunities: {
-      summary: "The UK Skilled Worker visa sponsors professionals across healthcare, technology, finance, and engineering sectors.",
-      highlights: ["Skilled Worker Visa", "Health and Care Worker Visa", "Global Talent Visa", "Intra-Company Transfer"],
-    },
-    immigrationPathways: ["Skilled Worker Visa", "Graduate Route", "Health and Care Worker Visa", "Global Talent Visa", "Entrepreneur Visa"],
-    costs: [
-      { item: "Student Visa Fee", amount: "£363" },
-      { item: "Skilled Worker Visa", amount: "£625–£1,235" },
-      { item: "IHS Surcharge (per year)", amount: "£776" },
-      { item: "Avg Monthly Living Cost", amount: "£1,000–1,800" },
-    ],
-    documents: ["Valid Passport", "CAS Number (Student)", "Financial Evidence", "English Test Results", "Certificate of Sponsorship (Work)", "Tuberculosis Test"],
-    visaProcess: ["Online Application", "Pay Visa Fee & IHS", "Biometrics Enrollment", "Document Submission", "Decision by UKVI", "BRP Collection"],
-  },
-  {
     id: "australia",
     name: "Australia",
     flag: "🇦🇺",
@@ -234,6 +207,33 @@ export const COUNTRIES = [
     ],
     documents: ["Valid Passport", "Confirmation of Enrollment (CoE)", "Health Insurance (OSHC)", "Financial Proof", "Skills Assessment", "English Test Results"],
     visaProcess: ["Create ImmiAccount", "Complete Online Application", "Health & Character Checks", "Biometrics (if required)", "Upload Supporting Documents", "Decision & Grant"],
+  },
+  {
+    id: "uk",
+    name: "United Kingdom",
+    flag: "🇬🇧",
+    slug: "uk",
+    tagline: "Excellence Meets Tradition",
+    description: "The UK is home to some of the world's most prestigious universities and offers a Graduate Route visa that allows graduates to work for up to 2 years.",
+    heroColor: "from-blue-900 to-blue-800",
+    benefits: ["World-class education", "Graduate Route visa", "NHS healthcare", "Cultural diversity", "Strong financial hub", "English-speaking environment"],
+    studyOpportunities: {
+      summary: "The UK has 4 of the world's top 10 universities. International students can work 20 hours/week and access a 2-year Graduate Route post-study.",
+      highlights: ["Oxford, Cambridge, Imperial, UCL", "2-year Graduate Route visa", "Avg tuition: £15,000–35,000/year", "Part-time work during studies"],
+    },
+    workOpportunities: {
+      summary: "The UK Skilled Worker visa sponsors professionals across healthcare, technology, finance, and engineering sectors.",
+      highlights: ["Skilled Worker Visa", "Health and Care Worker Visa", "Global Talent Visa", "Intra-Company Transfer"],
+    },
+    immigrationPathways: ["Skilled Worker Visa", "Graduate Route", "Health and Care Worker Visa", "Global Talent Visa", "Entrepreneur Visa"],
+    costs: [
+      { item: "Student Visa Fee", amount: "£363" },
+      { item: "Skilled Worker Visa", amount: "£625–£1,235" },
+      { item: "IHS Surcharge (per year)", amount: "£776" },
+      { item: "Avg Monthly Living Cost", amount: "£1,000–1,800" },
+    ],
+    documents: ["Valid Passport", "CAS Number (Student)", "Financial Evidence", "English Test Results", "Certificate of Sponsorship (Work)", "Tuberculosis Test"],
+    visaProcess: ["Online Application", "Pay Visa Fee & IHS", "Biometrics Enrollment", "Document Submission", "Decision by UKVI", "BRP Collection"],
   },
   {
     id: "usa",
@@ -263,6 +263,60 @@ export const COUNTRIES = [
     visaProcess: ["Get I-20 from University", "Pay SEVIS Fee", "Complete DS-160", "Schedule Consulate Interview", "Attend Visa Interview", "Visa Stamping"],
   },
   {
+    id: "new-zealand",
+    name: "New Zealand",
+    flag: "🇳🇿",
+    slug: "new-zealand",
+    tagline: "A Fresh Start at the Edge of the World",
+    description: "New Zealand offers a welcoming immigration system, stunning landscapes, quality education, and a high standard of living with straightforward PR pathways.",
+    heroColor: "from-teal-900 to-teal-800",
+    benefits: ["Safe and peaceful country", "Welcoming immigration policies", "Post-study work rights", "Stunning natural environment", "High quality education", "Fast PR pathways"],
+    studyOpportunities: {
+      summary: "New Zealand's universities are globally recognized with strong programs in agriculture, engineering, and health sciences.",
+      highlights: ["University of Auckland, Victoria", "3-year Post-Study Work Visa", "Work 20 hrs/week during studies", "Avg tuition: NZD 22,000–35,000/year"],
+    },
+    workOpportunities: {
+      summary: "New Zealand's Accredited Employer Work Visa (AEWV) is the primary pathway for skilled workers.",
+      highlights: ["Accredited Employer Work Visa (AEWV)", "Skilled Migrant Category (SMC)", "Working Holiday Visa", "Essential Skills Work Visa"],
+    },
+    immigrationPathways: ["Skilled Migrant Category (SMC)", "Accredited Employer Work Visa", "Residence from Work", "Investor Visa", "Family Category"],
+    costs: [
+      { item: "Student Visa Fee", amount: "NZD 375" },
+      { item: "AEWV Fee", amount: "NZD 750" },
+      { item: "Skilled Migrant PR", amount: "NZD 3,230" },
+      { item: "Avg Monthly Living Cost", amount: "NZD 1,200–2,000" },
+    ],
+    documents: ["Valid Passport", "Offer of Place (Student)", "Proof of Funds", "Health Insurance", "Medical Certificate", "Police Clearance", "Job Offer (Work)"],
+    visaProcess: ["Create RealMe Account", "Online Application on Immigration NZ", "Health & Character Declarations", "Biometrics Enrollment", "Decision Notification", "Visa Grant"],
+  },
+  {
+    id: "dubai",
+    name: "Dubai (UAE)",
+    flag: "🇦🇪",
+    slug: "dubai",
+    tagline: "The Global Business & Study Hub",
+    description: "Dubai and the UAE offer world-class universities, tax-free salaries, a booming job market, and a strategic location connecting Asia, Europe, and Africa.",
+    heroColor: "from-amber-800 to-amber-900",
+    benefits: ["Tax-free income", "World-class infrastructure", "Booming job market", "International universities", "Safe and modern lifestyle", "Strategic global location"],
+    studyOpportunities: {
+      summary: "Dubai hosts campuses of top international universities. Students can work part-time and access a dynamic job market post-graduation.",
+      highlights: ["University of Birmingham Dubai, Heriot-Watt", "Post-study work visa available", "Avg tuition: AED 40,000–80,000/year", "Part-time work permitted"],
+    },
+    workOpportunities: {
+      summary: "The UAE offers Employment Visas, Green Visas for freelancers, and Golden Visas for investors and skilled professionals.",
+      highlights: ["Employment Visa", "Green Visa (Freelancers)", "Golden Visa (10-year)", "Investor Visa"],
+    },
+    immigrationPathways: ["Employment Visa", "Green Visa", "Golden Visa", "Student Visa", "Investor Visa"],
+    costs: [
+      { item: "Student Visa Fee", amount: "AED 1,500–3,000" },
+      { item: "Employment Visa", amount: "AED 3,000–5,000" },
+      { item: "Golden Visa", amount: "AED 2,500+" },
+      { item: "Avg Monthly Living Cost", amount: "AED 3,500–6,000" },
+    ],
+    documents: ["Valid Passport", "Educational Certificates", "Emirates ID Application", "Health Insurance", "Medical Fitness Test", "Offer Letter (Work)"],
+    visaProcess: ["Receive Offer / Admission", "Apply for Entry Permit", "Medical Fitness Test", "Emirates ID Application", "Visa Stamping", "Residence Visa Issued"],
+  },
+  {
     id: "germany",
     name: "Germany",
     flag: "🇩🇪",
@@ -290,31 +344,139 @@ export const COUNTRIES = [
     visaProcess: ["Get Admission / Job Offer", "Open Blocked Account", "Apply at German Consulate", "Attend Visa Interview", "Receive National Visa D", "Register in Germany (Anmeldung)"],
   },
   {
-    id: "new-zealand",
-    name: "New Zealand",
-    flag: "🇳🇿",
-    slug: "new-zealand",
-    tagline: "A Fresh Start at the Edge of the World",
-    description: "New Zealand offers a welcoming immigration system, stunning landscapes, quality education, and a high standard of living with straightforward PR pathways.",
-    heroColor: "from-teal-900 to-teal-800",
-    benefits: ["Safe and peaceful country", "Welcoming immigration policies", "Post-study work rights", "Stunning natural environment", "High quality education", "Fast PR pathways"],
+    id: "france",
+    name: "France",
+    flag: "🇫🇷",
+    slug: "france",
+    tagline: "Study & Live in the Heart of Europe",
+    description: "France offers affordable world-class education, rich cultural experiences, and strong career prospects across Europe's second-largest economy.",
+    heroColor: "from-blue-800 to-blue-900",
+    benefits: ["Affordable tuition fees", "Rich culture & history", "Post-study work permit", "EU residency pathway", "Globally recognized degrees", "Diverse student community"],
     studyOpportunities: {
-      summary: "New Zealand's universities are globally recognized with strong programs in agriculture, engineering, and health sciences.",
-      highlights: ["University of Auckland, Victoria", "3-year Post-Study Work Visa", "Work 20 hrs/week during studies", "Avg tuition: NZD 22,000–35,000/year"],
+      summary: "France hosts over 3,500 higher education institutions with affordable tuition and generous scholarships for international students.",
+      highlights: ["Sorbonne, Sciences Po, HEC Paris", "1-year post-study work visa", "Avg tuition: €2,770–10,000/year (public)", "Campus France application process"],
     },
     workOpportunities: {
-      summary: "New Zealand's Accredited Employer Work Visa (AEWV) is the primary pathway for skilled workers.",
-      highlights: ["Accredited Employer Work Visa (AEWV)", "Skilled Migrant Category (SMC)", "Working Holiday Visa", "Essential Skills Work Visa"],
+      summary: "France offers the Talent Passport for skilled professionals and the EU Blue Card for high-earning workers.",
+      highlights: ["Talent Passport Visa", "EU Blue Card", "Salarié Visa (Employee)", "Intra-company Transfer"],
     },
-    immigrationPathways: ["Skilled Migrant Category (SMC)", "Accredited Employer Work Visa", "Residence from Work", "Investor Visa", "Family Category"],
+    immigrationPathways: ["Student Visa (Long Stay)", "Talent Passport", "EU Blue Card", "Salarié Visa", "Family Reunification"],
     costs: [
-      { item: "Student Visa Fee", amount: "NZD 375" },
-      { item: "AEWV Fee", amount: "NZD 750" },
-      { item: "Skilled Migrant PR", amount: "NZD 3,230" },
-      { item: "Avg Monthly Living Cost", amount: "NZD 1,200–2,000" },
+      { item: "Student Visa Fee", amount: "€99" },
+      { item: "Talent Passport", amount: "€99–225" },
+      { item: "Campus France Fee", amount: "€9,500 INR" },
+      { item: "Avg Monthly Living Cost", amount: "€800–1,500" },
     ],
-    documents: ["Valid Passport", "Offer of Place (Student)", "Proof of Funds", "Health Insurance", "Medical Certificate", "Police Clearance", "Job Offer (Work)"],
-    visaProcess: ["Create RealMe Account", "Online Application on Immigration NZ", "Health & Character Declarations", "Biometrics Enrollment", "Decision Notification", "Visa Grant"],
+    documents: ["Valid Passport", "Admission Letter", "Campus France Attestation", "Financial Proof", "Health Insurance", "Accommodation Proof"],
+    visaProcess: ["Campus France Registration", "University Application", "VFS Appointment", "Visa Interview", "Visa Stamping", "OFII Validation in France"],
+  },
+  {
+    id: "netherlands",
+    name: "Netherlands",
+    flag: "🇳🇱",
+    slug: "netherlands",
+    tagline: "Innovation Meets International Culture",
+    description: "The Netherlands is a hub of innovation with English-taught programs, a thriving startup ecosystem, and an excellent quality of life.",
+    heroColor: "from-orange-800 to-orange-900",
+    benefits: ["English-taught programs", "Startup-friendly ecosystem", "Post-study orientation year", "Cycling culture & quality of life", "EU gateway", "Highly ranked universities"],
+    studyOpportunities: {
+      summary: "Dutch universities offer 2,100+ English-taught programs. Graduates get a 1-year orientation visa to find employment.",
+      highlights: ["TU Delft, University of Amsterdam, Leiden", "Orientation Year Visa (Zoekjaar)", "Avg tuition: €8,000–20,000/year", "Holland Scholarship available"],
+    },
+    workOpportunities: {
+      summary: "The Netherlands offers the Highly Skilled Migrant visa and the Orientation Year for recent graduates.",
+      highlights: ["Highly Skilled Migrant Visa (KM)", "Orientation Year (Zoekjaar)", "EU Blue Card", "Intra-Corporate Transfer"],
+    },
+    immigrationPathways: ["Highly Skilled Migrant Visa", "Orientation Year Visa", "EU Blue Card", "Self-Employment Visa", "Family Reunification"],
+    costs: [
+      { item: "Student Visa (MVV)", amount: "€210" },
+      { item: "Residence Permit", amount: "€210" },
+      { item: "Highly Skilled Migrant", amount: "€350" },
+      { item: "Avg Monthly Living Cost", amount: "€900–1,400" },
+    ],
+    documents: ["Valid Passport", "Admission Letter", "Proof of Funds", "Health Insurance", "Nuffic Certificate", "Accommodation Proof"],
+    visaProcess: ["University Admission", "MVV Application via Sponsor", "Collect MVV from Embassy", "Travel to Netherlands", "Residence Permit (VVR)", "Register at Municipality"],
+  },
+  {
+    id: "ireland",
+    name: "Ireland",
+    flag: "🇮🇪",
+    slug: "ireland",
+    tagline: "Europe's English-Speaking Tech Hub",
+    description: "Ireland combines top-quality English-medium education with Europe's fastest-growing economy and a welcoming international community.",
+    heroColor: "from-green-800 to-green-900",
+    benefits: ["English-speaking country", "Tech hub (Google, Meta, Apple HQ)", "Post-study stay-back visa", "EU access", "Welcoming culture", "Strong graduate employability"],
+    studyOpportunities: {
+      summary: "Ireland's universities are globally ranked and offer 2-year stay-back visas for graduates at Level 9+.",
+      highlights: ["Trinity College Dublin, UCD, NUI Galway", "2-year Stay Back (Level 9+)", "Avg tuition: €10,000–25,000/year", "Work 20 hrs/week during term"],
+    },
+    workOpportunities: {
+      summary: "Ireland's Critical Skills Employment Permit targets in-demand professionals across tech, healthcare, and finance.",
+      highlights: ["Critical Skills Employment Permit", "General Employment Permit", "Intra-Company Transfer Permit", "Stamp 4 (Permanent)"],
+    },
+    immigrationPathways: ["Student Visa (Stamp 2)", "Critical Skills Permit", "General Employment Permit", "Stamp 4 (Long-term Residence)", "Family Reunification"],
+    costs: [
+      { item: "Student Visa Fee", amount: "€60" },
+      { item: "Employment Permit", amount: "€1,000" },
+      { item: "IRP Card", amount: "€300" },
+      { item: "Avg Monthly Living Cost", amount: "€900–1,600" },
+    ],
+    documents: ["Valid Passport", "Offer Letter", "Financial Proof (€10,000)", "Health Insurance", "English Proficiency", "Academic Transcripts"],
+    visaProcess: ["AVATS Online Application", "Gather Documents", "Submit at VFS / Embassy", "Biometrics", "Visa Decision", "IRP Registration in Ireland"],
+  },
+  {
+    id: "sweden",
+    name: "Sweden",
+    flag: "🇸🇪",
+    slug: "sweden",
+    tagline: "Innovation, Sustainability & Quality Education",
+    description: "Sweden is known for its innovative universities, high quality of life, and generous post-study work opportunities in a progressive society.",
+    heroColor: "from-blue-700 to-yellow-700",
+    benefits: ["High-quality free research", "Post-study work permit", "English widely spoken", "Innovation-driven economy", "Sustainable lifestyle", "Strong social welfare"],
+    studyOpportunities: {
+      summary: "Swedish universities are ranked among the world's best. Graduates can apply for a post-study work permit of up to 12 months.",
+      highlights: ["KTH, Lund, Uppsala, Stockholm", "12-month post-study work permit", "Avg tuition: SEK 80,000–295,000/year", "SI Scholarships available"],
+    },
+    workOpportunities: {
+      summary: "Sweden offers work permits for skilled professionals and has a fast-track system for high-demand occupations.",
+      highlights: ["Work Permit", "EU Blue Card", "ICT Permit", "Researcher Visa"],
+    },
+    immigrationPathways: ["Student Residence Permit", "Work Permit", "EU Blue Card", "Family Reunification", "Self-Employment Permit"],
+    costs: [
+      { item: "Student Permit Fee", amount: "SEK 1,500" },
+      { item: "Work Permit Fee", amount: "SEK 2,000" },
+      { item: "Extension Fee", amount: "SEK 1,000" },
+      { item: "Avg Monthly Living Cost", amount: "SEK 8,500–12,000" },
+    ],
+    documents: ["Valid Passport", "Admission Letter", "Proof of Funds", "Health Insurance", "Accommodation Proof", "Employment Contract (Work)"],
+    visaProcess: ["Apply Online at Migrationsverket", "Pay Application Fee", "Submit Documents", "Biometrics at Embassy", "Decision Notification", "Collect Residence Card"],
+  },
+  {
+    id: "finland",
+    name: "Finland",
+    flag: "🇫🇮",
+    slug: "finland",
+    tagline: "World's Happiest Country, World-Class Education",
+    description: "Finland offers exceptional education quality, a safe living environment, and excellent post-study work pathways in the world's happiest country.",
+    heroColor: "from-blue-800 to-blue-950",
+    benefits: ["World-class education system", "Safest country in Europe", "Post-study work rights", "English-taught programs", "Clean environment", "Innovation ecosystem"],
+    studyOpportunities: {
+      summary: "Finnish universities are globally recognized for quality education. Graduates get an extended 2-year residence permit for job seeking.",
+      highlights: ["University of Helsinki, Aalto, Turku", "2-year post-study job search permit", "Avg tuition: €6,000–18,000/year", "Finland Scholarship available"],
+    },
+    workOpportunities: {
+      summary: "Finland actively seeks skilled professionals in tech, healthcare, and engineering with streamlined work permit processes.",
+      highlights: ["Specialist Work Permit", "EU Blue Card", "Startup Permit", "Seasonal Worker Permit"],
+    },
+    immigrationPathways: ["Student Residence Permit", "Specialist Work Permit", "EU Blue Card", "Startup Permit", "Family Residence Permit"],
+    costs: [
+      { item: "Student Permit Fee", amount: "€350" },
+      { item: "Work Permit Fee", amount: "€490" },
+      { item: "Extension Fee", amount: "€160" },
+      { item: "Avg Monthly Living Cost", amount: "€700–1,200" },
+    ],
+    documents: ["Valid Passport", "Admission Letter", "Proof of Funds (€6,720/year)", "Health Insurance", "Accommodation Details", "Employment Contract (Work)"],
+    visaProcess: ["Apply Online at EnterFinland", "Pay Application Fee", "Visit Finnish Embassy", "Biometrics Collection", "Processing & Decision", "Collect Residence Permit Card"],
   },
 ];
 
@@ -621,9 +783,15 @@ export const NAV_SERVICES = [
 
 export const NAV_COUNTRIES = [
   { title: "Canada", href: "/countries/canada", flag: "🇨🇦" },
-  { title: "United Kingdom", href: "/countries/uk", flag: "🇬🇧" },
   { title: "Australia", href: "/countries/australia", flag: "🇦🇺" },
+  { title: "United Kingdom", href: "/countries/uk", flag: "🇬🇧" },
   { title: "United States", href: "/countries/usa", flag: "🇺🇸" },
-  { title: "Germany", href: "/countries/germany", flag: "🇩🇪" },
   { title: "New Zealand", href: "/countries/new-zealand", flag: "🇳🇿" },
+  { title: "Dubai (UAE)", href: "/countries/dubai", flag: "🇦🇪" },
+  { title: "Germany", href: "/countries/germany", flag: "🇩🇪" },
+  { title: "France", href: "/countries/france", flag: "🇫🇷" },
+  { title: "Netherlands", href: "/countries/netherlands", flag: "🇳🇱" },
+  { title: "Ireland", href: "/countries/ireland", flag: "🇮🇪" },
+  { title: "Sweden", href: "/countries/sweden", flag: "🇸🇪" },
+  { title: "Finland", href: "/countries/finland", flag: "🇫🇮" },
 ];

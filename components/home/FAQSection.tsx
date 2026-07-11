@@ -56,8 +56,7 @@ export default function FAQSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             className="lg:sticky lg:top-24 lg:self-start"
           >
             <div className="section-label mb-5">FAQ</div>
@@ -75,8 +74,7 @@ export default function FAQSection() {
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.07 }}
               >
                 <FAQItem faq={faq} index={i} />

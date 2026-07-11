@@ -4,7 +4,7 @@ import TrustIndicators from "@/components/home/TrustIndicators";
 import AboutSection from "@/components/home/AboutSection";
 import ServicesOverview from "@/components/home/ServicesOverview";
 import FeaturedCountries from "@/components/home/FeaturedCountries";
-import ProcessTimeline from "@/components/home/ProcessTimeline";
+import VisaGuideAnimation from "@/components/home/VisaGuideAnimation";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import Testimonials from "@/components/home/Testimonials";
 import FAQSection from "@/components/home/FAQSection";
@@ -13,7 +13,7 @@ import CTABanner from "@/components/home/CTABanner";
 export const metadata: Metadata = {
   title: "Naksh Global Visa | Professional Immigration & Visa Consultancy",
   description:
-    "Naksh Global Visa — professional immigration consultancy in India. Transparent guidance for Student Visa, Work Permit & Visitor Visa across Canada, UK, Australia, USA, Germany & New Zealand. Complete documentation support.",
+    "Naksh Global Visa — professional immigration consultancy in India. Transparent guidance for Student Visa, Work Permit & Visitor Visa across Canada, Australia, UK, USA, New Zealand, Dubai & Europe. Complete documentation support.",
 };
 
 export default function HomePage() {
@@ -29,8 +29,8 @@ export default function HomePage() {
       <ServicesOverview />
       {/* 5. Countries We Serve */}
       <FeaturedCountries />
-      {/* 6. Visa Process Timeline */}
-      <ProcessTimeline />
+      {/* 6. Visa Process Guide */}
+      <VisaGuideAnimation />
       {/* 7. Why Choose Us */}
       <WhyChooseUs />
       {/* 8. Success Stories */}
@@ -42,3 +42,4 @@ export default function HomePage() {
     </>
   );
 }
+

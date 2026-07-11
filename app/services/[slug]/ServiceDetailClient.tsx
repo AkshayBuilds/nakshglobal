@@ -57,7 +57,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
             <h2 className="heading-lg mb-2">How it works</h2>
             <p className="body-md">Our streamlined process for your {service.title} application.</p>
           </motion.div>
@@ -66,8 +66,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
               <motion.div
                 key={p.step}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 className="bg-white p-6 hover:bg-[#F9FAFB] transition-colors relative"
               >
@@ -98,8 +97,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               className="bg-white rounded-xl border border-[#E5E7EB] p-8"
             >
               <div className="flex items-center gap-3 mb-6">
@@ -125,8 +123,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
 
             <motion.div
               initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               className="bg-white rounded-xl border border-[#E5E7EB] p-8"
             >
               <div className="flex items-center gap-3 mb-6">

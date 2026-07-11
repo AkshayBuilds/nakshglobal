@@ -3,7 +3,7 @@ import ContactClient from "./ContactClient";
 
 export const metadata: Metadata = {
   title: "Contact Us | Naksh Global Visa",
-  description: "Get in touch with Naksh Global Visa. Call, WhatsApp, or email us. Office in Bangalore. Free consultation available.",
+  description: "Get in touch with Naksh Global Visa. Call, WhatsApp, or email us. Office in Ahmedabad. Free consultation available.",
 };
 
 export default function ContactPage() {

@@ -6,63 +6,71 @@ import Image from "next/image";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 
 const stats = [
-  { number: "500+", label: "Clients Helped", sub: "Students, professionals & families" },
-  { number: "10+", label: "Countries Served", sub: "Canada, UK, Australia, USA & more" },
-  { number: "2017", label: "Established", sub: "Nearly a decade of trusted guidance" },
-  { number: "98%", label: "Success Rate", sub: "Thorough preparation, honest advice" },
+  { number: "500+", label: "Successful Relocations", sub: "Students, professionals & families" },
+  { number: "10+", label: "Destination Options", sub: "Canada, UK, Australia, Europe & more" },
+  { number: "2018", label: "Year Established", sub: "Nearly a decade of continuous service" },
+  { number: "98%", label: "Visa Success Rate", sub: "Thorough auditing, honest appraisals" },
 ];
 
 const values = [
-  "Transparent, jargon-free communication at every step",
-  "Ethical advice aligned with your best interests",
-  "Complete end-to-end documentation and filing support",
-  "Dedicated case officer for your application",
-  "Post-visa support and arrival guidance",
+  "Clear, jargon-free compliance mapping at every phase",
+  "Tailored consultation aligned strictly with active regulations",
+  "Complete end-to-end documentation audit and filing oversight",
+  "Dedicated client officer assigned to manage your milestones",
+  "Post-visa orientation and initial arrival coordination",
 ];
 
 export default function AboutSection() {
   return (
-    <section className="py-24 bg-[#0A2463]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="py-24 bg-[#0A2463] relative overflow-hidden">
+      {/* Background glow elements */}
+      <div className="glow-blob glow-orange w-[500px] h-[500px] -top-20 -right-20 opacity-[0.08]" />
+      <div className="glow-blob glow-blue w-[400px] h-[400px] bottom-10 left-10 opacity-[0.15]" />
+
+      <div className="w-container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          {/* Stats Column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="lg:col-span-5 grid grid-cols-2 gap-4"
           >
             {stats.map((item, i) => (
               <motion.div
                 key={item.label}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="border-b border-white/10 pb-8 last:border-0 last:pb-0"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="glass-card-dark rounded-2xl p-5 border border-white/5 hover:border-white/15 transition-all duration-300 flex flex-col justify-between"
               >
-                <div
-                  className="text-5xl md:text-6xl font-black text-[#E85D04] leading-none mb-2"
-                  style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
-                >
-                  {item.number}
+                <div>
+                  <div
+                    className="text-3xl md:text-4xl font-extrabold text-[#E85D04] leading-none mb-2"
+                    style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
+                  >
+                    {item.number}
+                  </div>
+                  <div
+                    className="text-white font-bold text-sm mb-1.5"
+                    style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
+                  >
+                    {item.label}
+                  </div>
                 </div>
-                <div
-                  className="text-white font-bold text-lg mb-1"
-                  style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
-                >
-                  {item.label}
+                <div className="text-white/50 text-[11px] leading-relaxed mt-2 border-t border-white/5 pt-2">
+                  {item.sub}
                 </div>
-                <div className="text-[#D6E4FF]/60 text-sm">{item.sub}</div>
               </motion.div>
             ))}
           </motion.div>
 
+          {/* Description & Value Proposition */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
+            className="lg:col-span-7"
           >
             <p className="text-[#E85D04] text-xs font-bold tracking-[0.15em] uppercase mb-4">
               About Naksh Global Visa
@@ -71,41 +79,48 @@ export default function AboutSection() {
               className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight"
               style={{ fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "-0.02em" }}
             >
-              A consultancy built on trust & transparency
+              Building bridges to international opportunities
             </h2>
-            <p className="text-[#D6E4FF]/80 text-base leading-relaxed mb-6">
-              Naksh Global Visa was established with a singular purpose — to make international immigration
-              accessible, honest, and stress-free for every client. We work with students, working
-              professionals, and families navigating the complex world of visa applications.
+            <p className="text-white/80 text-base leading-relaxed mb-6">
+              Naksh Global Visa was established to bridge the gap between global opportunities and ambitious
+              individuals. We provide highly structured, honest guidance that empowers students, professionals,
+              and families to build their futures abroad.
             </p>
-            <p className="text-[#D6E4FF]/60 text-sm leading-relaxed mb-8">
-              Our team brings deep knowledge of immigration regulations across Canada, the United Kingdom,
-              Australia, the United States, Germany, and New Zealand. We believe in building long-term
-              relationships, not just processing paperwork.
+            <p className="text-white/60 text-sm leading-relaxed mb-8">
+              By combining strict compliance audits with personalized attention, our team turns
+              intricate visa procedures into predictable milestones across the UK, Europe, Canada,
+              Australia, and beyond.
             </p>
 
-            <ul className="space-y-3 mb-10">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5 mb-10">
               {values.map((v) => (
                 <li key={v} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#E85D04] flex-shrink-0 mt-0.5" />
-                  <span className="text-[#D6E4FF]/80 text-sm leading-relaxed">{v}</span>
+                  <CheckCircle2 className="w-4.5 h-4.5 text-[#E85D04] flex-shrink-0 mt-0.5" />
+                  <span className="text-white/85 text-xs leading-relaxed">{v}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="relative h-48 rounded-xl overflow-hidden mb-8">
-              <Image
-                src="/hero-consultation.png"
-                alt="Naksh Global Visa consultation team"
-                fill
-                className="object-cover opacity-60"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0A2463]/80 to-transparent" />
-            </div>
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              <Link href="/about" className="btn-outline-white inline-flex items-center gap-2 w-full sm:w-auto justify-center">
+                Learn More About Us <ArrowRight className="w-4 h-4" />
+              </Link>
 
-            <Link href="/about" className="btn-outline-white inline-flex">
-              Learn More About Us <ArrowRight className="w-4 h-4" />
-            </Link>
+              <div className="hidden sm:flex items-center gap-3 pl-6 border-l border-white/10">
+                <div className="w-10 h-10 rounded-full bg-white/10 overflow-hidden relative flex-shrink-0">
+                  <Image
+                    src="/hero-consultation.png"
+                    alt="Naksh Team Lead"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-white font-bold text-xs">Expert Consultation</div>
+                  <div className="text-white/50 text-[10px]">Speak to our case lead</div>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

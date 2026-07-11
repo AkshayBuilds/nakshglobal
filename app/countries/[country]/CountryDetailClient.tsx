@@ -63,7 +63,7 @@ export default function CountryDetailClient({ country }: { country: Country }) {
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
             <h2 className="heading-lg mb-2">Why {country.name}?</h2>
           </motion.div>
           <div className="flex flex-wrap gap-3">
@@ -71,8 +71,7 @@ export default function CountryDetailClient({ country }: { country: Country }) {
               <motion.div
                 key={b}
                 initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
                 className="px-4 py-2 rounded-full bg-[#F9FAFB] border border-[#E5E7EB] text-[#4B5563] text-sm hover:border-[#E85D04]/30 transition-all"
               >
@@ -88,8 +87,7 @@ export default function CountryDetailClient({ country }: { country: Country }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               className="bg-white rounded-xl border border-[#E5E7EB] p-8"
             >
               <div className="flex items-center gap-3 mb-4">
@@ -116,8 +114,7 @@ export default function CountryDetailClient({ country }: { country: Country }) {
 
             <motion.div
               initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               className="bg-white rounded-xl border border-[#E5E7EB] p-8"
             >
               <div className="flex items-center gap-3 mb-4">

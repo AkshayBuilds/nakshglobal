@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, ChevronRight, ChevronLeft, User, Globe, GraduationCap, MessageSquare } from "lucide-react";
 
-const countries = ["Canada", "United Kingdom", "Australia", "United States", "Germany", "New Zealand", "Not sure yet"];
+const countries = ["Canada", "Australia", "United Kingdom", "United States", "New Zealand", "Dubai (UAE)", "Germany", "France", "Netherlands", "Ireland", "Sweden", "Finland", "Not sure yet"];
 const visaTypes = ["Student Visa", "Work Permit", "Visitor Visa", "Permanent Residency", "Not sure yet"];
 const educationLevels = ["High School (10+2)", "Diploma / Certificate", "Bachelor's Degree", "Master's Degree", "PhD", "Other"];
 const experienceLevels = ["No experience", "Less than 1 year", "1–3 years", "3–5 years", "5+ years"];
@@ -21,10 +21,9 @@ const inputClass =
   "w-full px-4 py-3 bg-white border border-[#E5E7EB] rounded-lg text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#E85D04] focus:border-transparent transition-all";
 
 const chipClass = (selected: boolean) =>
-  `px-3 py-2.5 rounded-lg text-sm font-medium border transition-all text-left ${
-    selected
-      ? "bg-[#E85D04] border-[#E85D04] text-white"
-      : "bg-white border-[#E5E7EB] text-[#4B5563] hover:border-[#E85D04]/40"
+  `px-3 py-2.5 rounded-lg text-sm font-medium border transition-all text-left ${selected
+    ? "bg-[#E85D04] border-[#E85D04] text-white"
+    : "bg-white border-[#E5E7EB] text-[#4B5563] hover:border-[#E85D04]/40"
   }`;
 
 export default function AssessmentClient() {
@@ -81,7 +80,7 @@ export default function AssessmentClient() {
             <p className="text-[#111827] font-medium">{form.mobile}</p>
           </div>
           <a
-            href="https://wa.me/919876543210"
+            href="https://wa.me/917600742894"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white font-bold rounded-lg hover:bg-[#20bf5a] transition-all"
@@ -115,13 +114,12 @@ export default function AssessmentClient() {
               {steps.map((s, i) => (
                 <div key={i} className="flex items-center gap-2 flex-shrink-0">
                   <div
-                    className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all ${
-                      i === step
-                        ? "bg-[#E85D04] text-white"
-                        : i < step
-                          ? "bg-[#FFF5E6] text-[#C44B00] border border-[#FAAB40]/30"
-                          : "bg-[#F9FAFB] text-[#9CA3AF] border border-[#E5E7EB]"
-                    }`}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all ${i === step
+                      ? "bg-[#E85D04] text-white"
+                      : i < step
+                        ? "bg-[#FFF5E6] text-[#C44B00] border border-[#FAAB40]/30"
+                        : "bg-[#F9FAFB] text-[#9CA3AF] border border-[#E5E7EB]"
+                      }`}
                   >
                     <s.icon className="w-4 h-4" />
                     <span className="text-xs font-semibold hidden sm:block">{s.title}</span>
@@ -178,7 +176,7 @@ export default function AssessmentClient() {
                           <label className="block text-[#374151] text-sm font-medium mb-1.5">Mobile Number *</label>
                           <input
                             type="tel"
-                            placeholder="+91 98765 43210"
+                            placeholder="+91 7600742894"
                             value={form.mobile}
                             onChange={(e) => update("mobile", e.target.value)}
                             className={inputClass}

@@ -21,9 +21,9 @@ const LinkedinIcon = () => (
 const iconMap: Record<string, React.ElementType> = { Shield, Handshake, Award, Heart };
 
 const milestones = [
-  { year: "2017", title: "Founded", desc: "Naksh Global Visa established in Bangalore with a mission to democratize immigration guidance." },
+  { year: "2018", title: "Founded", desc: "Naksh Global Visa established in Ahmedabad with a mission to democratize immigration guidance." },
   { year: "2019", title: "1,000 Visas", desc: "Crossed 1,000 successful visa approvals across Canada, UK, and Australia." },
-  { year: "2021", title: "Expanded Services", desc: "Added Germany, New Zealand, and USA to our portfolio. Team grew to 15 experts." },
+  { year: "2021", title: "Expanded Services", desc: "Added Dubai, New Zealand, USA, and European destinations to our portfolio. Team grew to 15 experts." },
   { year: "2023", title: "5,000 Visas", desc: "Milestone of 5,000+ visa approvals with a 98% success rate across 25+ countries." },
   { year: "2025", title: "Digital First", desc: "Launched fully digital consultation platform enabling clients across India to access our services." },
 ];
@@ -49,7 +49,7 @@ export default function AboutClient() {
               More than a consultancy — a trusted partner
             </h1>
             <p className="text-[#D6E4FF]/80 text-lg max-w-2xl leading-relaxed">
-              Since 2017, Naksh Global Visa has been the trusted immigration partner for thousands of students, professionals, and families across India. We believe everyone deserves a fair chance at global opportunities.
+              Since 2018, Naksh Global Visa has been the trusted immigration partner for thousands of students, professionals, and families across India. We believe everyone deserves a fair chance at global opportunities.
             </p>
           </motion.div>
         </div>
@@ -60,8 +60,7 @@ export default function AboutClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               className="border-l-4 border-[#E85D04] pl-8"
             >
               <h2 className="heading-md mb-4">Our Mission</h2>
@@ -71,8 +70,7 @@ export default function AboutClient() {
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               className="border-l-4 border-[#0A2463] pl-8"
             >
               <h2 className="heading-md mb-4">Our Vision</h2>
@@ -88,8 +86,7 @@ export default function AboutClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             className="mb-14"
           >
             <h2 className="heading-lg mb-4">Our core values</h2>
@@ -104,8 +101,7 @@ export default function AboutClient() {
                 <motion.div
                   key={value.title}
                   initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                   className="bg-white rounded-xl border border-[#E5E7EB] p-6 hover:border-[#E85D04]/30 transition-all"
                 >
@@ -143,17 +139,14 @@ export default function AboutClient() {
               <motion.div
                 key={member.name}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className={`bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6 hover:border-[#E85D04]/20 transition-all ${
-                  i === 0 ? "lg:col-span-2 lg:flex lg:gap-8 lg:items-start" : ""
-                }`}
+                className={`bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6 hover:border-[#E85D04]/20 transition-all ${i === 0 ? "lg:col-span-2 lg:flex lg:gap-8 lg:items-start" : ""
+                  }`}
               >
                 <div
-                  className={`rounded-xl bg-[#0A2463] flex items-center justify-center text-[#E85D04] font-bold flex-shrink-0 mb-4 ${
-                    i === 0 ? "w-24 h-24 text-3xl" : "w-16 h-16 text-xl mx-auto"
-                  }`}
+                  className={`rounded-xl bg-[#0A2463] flex items-center justify-center text-[#E85D04] font-bold flex-shrink-0 mb-4 ${i === 0 ? "w-24 h-24 text-3xl" : "w-16 h-16 text-xl mx-auto"
+                    }`}
                   style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
                 >
                   {member.avatar}
@@ -198,7 +191,7 @@ export default function AboutClient() {
 
       <section className="py-20 bg-[#F9FAFB]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-14">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-14">
             <h2 className="heading-lg">Our journey</h2>
           </motion.div>
           <div className="relative">
@@ -208,8 +201,7 @@ export default function AboutClient() {
                 <motion.div
                   key={m.year}
                   initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
                   className="flex gap-6 pl-14 relative"
                 >

@@ -37,9 +37,9 @@ export default function SuccessClient() {
       {/* Stats */}
       <section className="py-16 bg-[#060e1a] border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 text-white md:grid-cols-4 gap-8">
             {STATS.map((stat, i) => (
-              <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
+              <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="text-center">
                 <div className="text-4xl font-bold text-gold-gradient mb-2">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
@@ -58,11 +58,10 @@ export default function SuccessClient() {
               <button
                 key={cat}
                 onClick={() => setActiveTab(cat)}
-                className={`px-5 py-2.5 rounded-xl text-sm font-semibold border transition-all ${
-                  activeTab === cat
+                className={`px-5 py-2.5 rounded-xl text-sm font-semibold border transition-all ${activeTab === cat
                     ? "bg-[#D4AF37] border-[#D4AF37] text-[#0A1628]"
                     : "bg-white/5 border-white/10 text-white/60 hover:border-[#D4AF37]/30"
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -125,7 +124,7 @@ export default function SuccessClient() {
           <h2 className="text-3xl font-bold text-white mb-10 text-center">What Our <span className="text-gold-gradient">Clients Say</span></h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {TESTIMONIALS.slice(0, 3).map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }}
+              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.15 }}
                 className="glass rounded-3xl p-6 border border-white/10">
                 <div className="flex gap-1 mb-4">{Array.from({ length: t.rating }).map((_, idx) => <Star key={idx} className="w-4 h-4 text-[#D4AF37] fill-[#D4AF37]" />)}</div>
                 <p className="text-white/70 text-sm leading-relaxed mb-5 italic">&ldquo;{t.text}&rdquo;</p>

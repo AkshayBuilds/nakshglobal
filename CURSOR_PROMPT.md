@@ -530,7 +530,7 @@ Apply these rules to EVERY section. This is the most important structural change
             {[
               { num: "500+", label: "Clients Helped" },
               { num: "10+", label: "Countries" },
-              { num: "2017", label: "Established" },
+              { num: "2018", label: "Established" },
             ].map((stat) => (
               <div key={stat.label} className="bg-[#03071E]/60 backdrop-blur-sm px-4 py-5 text-center">
                 <div className="text-2xl font-black text-[#E85D04] font-jakarta">{stat.num}</div>
@@ -925,12 +925,12 @@ For the FAQ toggle icon: use `+` / `−` characters styled in orange, NOT the `C
       </Link>
       <Link href="/contact" className="btn-outline-white">
         <Phone className="w-4 h-4" />
-        +91 98765 43210
+        +91 7600742894
       </Link>
     </div>
     {/* Trust chips */}
     <div className="flex flex-wrap justify-center gap-3">
-      {["Registered Consultants", "10+ Countries", "Since 2017", "500+ Clients"].map((chip) => (
+      {["Registered Consultants", "10+ Countries", "Since 2018", "500+ Clients"].map((chip) => (
         <div key={chip} className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 text-white/60 text-xs font-medium">
           <div className="w-1.5 h-1.5 rounded-full bg-[#E85D04]" />
           {chip}

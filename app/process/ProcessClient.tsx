@@ -48,8 +48,7 @@ export default function ProcessClient() {
                 <motion.div
                   key={step.step}
                   initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                   className="relative"
                 >
