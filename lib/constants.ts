@@ -595,16 +595,6 @@ export const TESTIMONIALS = [
     text: "From work permit to permanent residency in New Zealand — Naksh Global handled everything with expertise. Their knowledge of NZ immigration is second to none. Five stars!",
     avatar: "SR",
   },
-  {
-    name: "Arjun Nair",
-    flag: "🇺🇸",
-    role: "PhD Student, USA",
-    visaType: "Student Visa",
-    rating: 5,
-    text: "Got my F-1 visa for a PhD program at a top US university. The team prepared me thoroughly for the visa interview. I passed on the first attempt. Eternally grateful!",
-    university: "University of Michigan",
-    avatar: "AN",
-  },
 ];
 
 // ─── Team ─────────────────────────────────────────────────────────────────────
