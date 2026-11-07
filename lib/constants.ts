@@ -4,8 +4,8 @@ export const SITE_TAGLINE = "Your Trusted Partner for Global Opportunities";
 export const SITE_DESCRIPTION =
   "Naksh Global Visa is a premium immigration and visa consultancy helping students, professionals, and families navigate their global journey with expert guidance, transparency, and care.";
 export const SITE_URL = "https://www.nakshglobalvisa.com";
-export const WHATSAPP_NUMBER = "+917600742894";
-export const PHONE_NUMBER = "+91 7600742894";
+export const WHATSAPP_NUMBER = "+917383888088";
+export const PHONE_NUMBER = "+91 73838 88088";
 export const EMAIL = "info@nakshglobalvisa.com";
 export const ADDRESS = "Naroda, Ahmedabad";
 export const BUSINESS_HOURS = [

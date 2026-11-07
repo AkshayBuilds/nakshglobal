@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, CalendarCheck } from "lucide-react";
-import { ADDRESS } from "@/lib/constants";
+import { ADDRESS, PHONE_NUMBER } from "@/lib/constants";
 
 const SocialIcons = {
   Facebook: () => (
@@ -168,11 +168,11 @@ export default function Footer() {
             <ul className="space-y-4 mb-6">
               <li>
                 <a
-                  href="tel:+917600742894"
+                  href={`tel:${PHONE_NUMBER.replace(/\s+/g, "")}`}
                   className="flex items-start gap-3 text-[#64748B] hover:text-white transition-colors group"
                 >
                   <Phone className="w-4 h-4 text-[#E85D04] mt-0.5 flex-shrink-0" />
-                  <span className="text-sm">+91 7600742894</span>
+                  <span className="text-sm">{PHONE_NUMBER}</span>
                 </a>
               </li>
               <li>

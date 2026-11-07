@@ -925,7 +925,7 @@ For the FAQ toggle icon: use `+` / `−` characters styled in orange, NOT the `C
       </Link>
       <Link href="/contact" className="btn-outline-white">
         <Phone className="w-4 h-4" />
-        +91 7600742894
+        +91 73838 88088
       </Link>
     </div>
     {/* Trust chips */}

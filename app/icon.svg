@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E2D79"/>
+      <stop offset="50%" stop-color="#0A2463"/>
+      <stop offset="100%" stop-color="#05143A"/>
+    </linearGradient>
+
+    <!-- Accent Gradient -->
+    <linearGradient id="orangeGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D9480F"/>
+      <stop offset="50%" stop-color="#E85D04"/>
+      <stop offset="100%" stop-color="#FF9E00"/>
+    </linearGradient>
+
+    <!-- Subtle Glow -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Squircle Base with smooth corners -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle border highlight -->
+  <rect x="4" y="4" width="504" height="504" rx="124" stroke="rgba(255,255,255,0.12)" stroke-width="8" fill="none"/>
+
+  <!-- Globe Longitude & Latitude Curved Grid (Subtle luxury watermark) -->
+  <circle cx="256" cy="256" r="176" stroke="rgba(255, 255, 255, 0.08)" stroke-width="4" fill="none"/>
+  <ellipse cx="256" cy="256" rx="90" ry="176" stroke="rgba(255, 255, 255, 0.08)" stroke-width="4" fill="none"/>
+  <line x1="80" y1="256" x2="432" y2="256" stroke="rgba(255, 255, 255, 0.08)" stroke-width="4"/>
+
+  <!-- Orbiting Flight Arc (Global Travel & Visa Pathway) -->
+  <path d="M 100 370 C 130 180, 290 120, 420 150" 
+        stroke="url(#orangeGrad)" 
+        stroke-width="12" 
+        stroke-linecap="round" 
+        stroke-dasharray="1 1"
+        opacity="0.35" />
+
+  <!-- Bold Geometric 'N' & Flight Ascent -->
+  <!-- Left Pillar of N -->
+  <path d="M 148 376 L 148 136 L 208 136 L 208 376 Z" 
+        fill="#FFFFFF" 
+        rx="8"/>
+
+  <!-- Dynamic Diagonal of N connecting into Ascent -->
+  <path d="M 196 142 L 316 352 L 316 280 L 224 136 Z" 
+        fill="#E2E8F0"/>
+
+  <!-- Right Pillar of N transitioning into Orange Dynamic Arrow/Flight Path -->
+  <path d="M 304 376 L 304 168 L 364 168 L 364 376 Z" 
+        fill="#FFFFFF" 
+        rx="8"/>
+
+  <!-- Dynamic Orange Visa/Flight Accent Arrow at the Top Right of N -->
+  <g filter="url(#glow)">
+    <path d="M 334 148 L 412 92 L 388 178 Z" 
+          fill="url(#orangeGrad)"/>
+    <circle cx="414" cy="90" r="10" fill="#FFB703" />
+  </g>
+
+  <!-- Small gold star accent (representing high approval rating & trust) -->
+  <path d="M 178 98 L 182 110 L 194 110 L 184 118 L 188 130 L 178 122 L 168 130 L 172 118 L 162 110 L 174 110 Z" 
+        fill="#FFB703" 
+        opacity="0.9" />
+</svg>
+

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, ChevronRight, ChevronLeft, User, Globe, GraduationCap, MessageSquare } from "lucide-react";
+import { WHATSAPP_NUMBER, PHONE_NUMBER } from "@/lib/constants";
 
 const countries = ["Canada", "Australia", "United Kingdom", "United States", "New Zealand", "Dubai (UAE)", "Germany", "France", "Netherlands", "Ireland", "Sweden", "Finland", "Not sure yet"];
 const visaTypes = ["Student Visa", "Work Permit", "Visitor Visa", "Permanent Residency", "Not sure yet"];
@@ -80,7 +81,7 @@ export default function AssessmentClient() {
             <p className="text-[#111827] font-medium">{form.mobile}</p>
           </div>
           <a
-            href="https://wa.me/917600742894"
+            href={`https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, "")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white font-bold rounded-lg hover:bg-[#20bf5a] transition-all"
@@ -176,7 +177,7 @@ export default function AssessmentClient() {
                           <label className="block text-[#374151] text-sm font-medium mb-1.5">Mobile Number *</label>
                           <input
                             type="tel"
-                            placeholder="+91 7600742894"
+                            placeholder={PHONE_NUMBER}
                             value={form.mobile}
                             onChange={(e) => update("mobile", e.target.value)}
                             className={inputClass}

@@ -14,6 +14,7 @@ import {
   Phone,
   CalendarCheck,
 } from "lucide-react";
+import { PHONE_NUMBER } from "@/lib/constants";
 
 const services = [
   {
@@ -268,11 +269,11 @@ export default function Navbar() {
 
             <div className="hidden lg:flex items-center gap-3">
               <a
-                href="tel:+917600742894"
+                href={`tel:${PHONE_NUMBER.replace(/\s+/g, "")}`}
                 className="hidden xl:flex items-center gap-1.5 text-[#0A2463] hover:text-[#E85D04] text-[13px] transition-colors"
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span className="font-medium">+91 7600742894</span>
+                <span className="font-medium">{PHONE_NUMBER}</span>
               </a>
               <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>
                 <Link
@@ -395,11 +396,11 @@ export default function Navbar() {
 
                 <div className="pt-4 border-t border-[#E5E7EB] space-y-3">
                   <a
-                    href="tel:+917600742894"
+                    href={`tel:${PHONE_NUMBER.replace(/\s+/g, "")}`}
                     className="flex items-center gap-2 px-4 py-3 text-[#0A2463] text-sm"
                   >
                     <Phone className="w-4 h-4 text-[#E85D04]" />
-                    +91 7600742894
+                    {PHONE_NUMBER}
                   </a>
                   <Link href="/free-assessment" className="btn-primary w-full justify-center text-sm">
                     Book Consultation

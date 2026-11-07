@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, CheckCircle2 } from "lucide-react";
-import { BUSINESS_HOURS, EMAIL, PHONE_NUMBER, ADDRESS } from "@/lib/constants";
+import { BUSINESS_HOURS, EMAIL, PHONE_NUMBER, ADDRESS, WHATSAPP_NUMBER } from "@/lib/constants";
 
 const SocialFB = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
@@ -171,7 +171,7 @@ export default function ContactClient() {
                 </h3>
 
                 <div className="space-y-5 mb-8">
-                  <a href="tel:+917600742894" className="flex items-start gap-4 group">
+                  <a href={`tel:${PHONE_NUMBER.replace(/\s+/g, "")}`} className="flex items-start gap-4 group">
                     <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
                       <Phone className="w-5 h-5 text-[#E85D04]" />
                     </div>
@@ -207,7 +207,7 @@ export default function ContactClient() {
                 </div>
 
                 <a
-                  href="https://wa.me/917600742894?text=Hi%20Naksh%20Global%20Visa%2C%20I%20need%20visa%20assistance."
+                  href={`https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, "")}?text=Hi%20Naksh%20Global%20Visa%2C%20I%20need%20visa%20assistance.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-lg bg-[#25D366]/20 border border-[#25D366]/30 hover:bg-[#25D366]/30 transition-all mb-8"
