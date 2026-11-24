@@ -60,6 +60,14 @@
   --shadow-card-hover: 0 4px 24px rgba(10, 36, 99, 0.14), 0 8px 32px rgba(10, 36, 99, 0.10);
   --shadow-orange: 0 2px 12px rgba(232, 93, 4, 0.30);
   --shadow-navbar: 0 1px 0 rgba(10, 36, 99, 0.08), 0 4px 20px rgba(10, 36, 99, 0.06);
+
+  /* ─── Shared design tokens (passport / case-file pages) ─── */
+  --color-paper: #EDEFF2;
+  --color-ink: #14213D;
+  --color-stamp-blue: #1F4E8C;
+  --color-stamp-red: #B3262E;
+  --color-approved-green: #2F7D5B;
+  --color-divider: #C9CDD4;
 }
 
 /* ─── Keyframes ─── */

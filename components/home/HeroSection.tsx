@@ -1,257 +1,332 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CalendarCheck } from "lucide-react";
+import { Newsreader, Hanken_Grotesk } from "next/font/google";
+import PassportPage, { PassportFields } from "./PassportPage";
+import { StampData } from "./VisaStamp";
+import { PHONE_NUMBER } from "@/lib/constants";
 
-/* ─────────────────────────── Data ─────────────────────────── */
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
 
-const destinations = [
-  { flag: "🇨🇦", name: "Canada" },
-  { flag: "🇦🇺", name: "Australia" },
-  { flag: "🇬🇧", name: "United Kingdom" },
-  { flag: "🇺🇸", name: "United States" },
-  { flag: "🇩🇪", name: "Germany" },
-  { flag: "🇳🇿", name: "New Zealand" },
-  { flag: "🇦🇪", name: "Dubai" },
-  { flag: "🇫🇷", name: "France" },
-  { flag: "🇮🇪", name: "Ireland" },
-  { flag: "🇸🇪", name: "Sweden" },
+const hanken = Hanken_Grotesk({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+interface CountryConfig {
+  name: string;
+  code: string;
+  category: "STUDY" | "WORK" | "VISIT" | "RESIDENCE";
+  visaType: string;
+  validFor: string;
+  processingTime: string;
+  color: "#1F4E8C" | "#B3262E" | "#2F7D5B";
+  shape: "hexagon" | "oval" | "rect" | "circle" | "octagon";
+  defaultAnchor: { x: number; y: number };
+}
+
+const COUNTRIES: CountryConfig[] = [
+  {
+    name: "Canada",
+    code: "CAN",
+    category: "STUDY",
+    visaType: "Student Visa (V-1)",
+    validFor: "Duration of studies + 90 days",
+    processingTime: "7–11 weeks typical (IRCC)",
+    color: "#1F4E8C", // Stamp Blue
+    shape: "hexagon",
+    defaultAnchor: { x: 32, y: 34 },
+  },
+  {
+    name: "Australia",
+    code: "AUS",
+    category: "WORK",
+    visaType: "Skilled Migration (Subclass 189/190)",
+    validFor: "Permanent / 5-year travel facility",
+    processingTime: "4–8 weeks typical (Home Affairs)",
+    color: "#B3262E", // Stamp Red
+    shape: "oval",
+    defaultAnchor: { x: 68, y: 38 },
+  },
+  {
+    name: "UK",
+    code: "GBR",
+    category: "WORK",
+    visaType: "Skilled Worker Route",
+    validFor: "Up to 5 years (extendable)",
+    processingTime: "3 weeks standard (UKVI)",
+    color: "#2F7D5B", // Muted Green
+    shape: "rect",
+    defaultAnchor: { x: 42, y: 72 },
+  },
+  {
+    name: "USA",
+    code: "USA",
+    category: "STUDY",
+    visaType: "F-1 Academic Student",
+    validFor: "Duration of Status (D/S)",
+    processingTime: "Post-interview decision (DoS)",
+    color: "#1F4E8C", // Stamp Blue
+    shape: "circle",
+    defaultAnchor: { x: 74, y: 72 },
+  },
+  {
+    name: "Germany",
+    code: "DEU",
+    category: "WORK",
+    visaType: "Opportunity Card (Chancenkarte)",
+    validFor: "12 months (extendable)",
+    processingTime: "6–12 weeks typical",
+    color: "#B3262E", // Stamp Red
+    shape: "octagon",
+    defaultAnchor: { x: 50, y: 52 },
+  },
+  {
+    name: "New Zealand",
+    code: "NZL",
+    category: "STUDY",
+    visaType: "Fee Paying Student",
+    validFor: "Course duration (up to 4 years)",
+    processingTime: "5–8 weeks typical",
+    color: "#2F7D5B", // Muted Green
+    shape: "oval",
+    defaultAnchor: { x: 28, y: 64 },
+  },
+  {
+    name: "Dubai",
+    code: "ARE",
+    category: "RESIDENCE",
+    visaType: "Employment & Residence Permit",
+    validFor: "2–5 years renewable",
+    processingTime: "5–10 business days (GDRFA)",
+    color: "#1F4E8C", // Stamp Blue
+    shape: "hexagon",
+    defaultAnchor: { x: 65, y: 56 },
+  },
 ];
 
-const figures = [
-  { num: "5,000+", desc: "Visas Approved" },
-  { num: "98%", desc: "Success Rate" },
-  { num: "25+", desc: "Countries" },
-  { num: "8 Yrs", desc: "Experience" },
-];
+function createStampData(country: CountryConfig, indexOffset: number = 0): StampData {
+  const randomAngle = Math.sin(country.name.length * 13 + indexOffset * 7) * 6;
+  const jitterX = Math.cos(country.name.length * 9 + indexOffset) * 4;
+  const jitterY = Math.sin(country.name.length * 9 + indexOffset) * 4;
 
-/* ─── Stagger animation variants ─── */
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09 } },
-};
-const line = {
-  hidden: { opacity: 0, y: 36, skewY: 2 },
-  show: { opacity: 1, y: 0, skewY: 0, transition: { duration: 0.78, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
-};
-const fade = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
-};
+  const today = new Date();
+  const dateStr = today
+    .toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    })
+    .toUpperCase();
 
-/* ─────────────────────────── Component ─────────────────────────── */
+  return {
+    id: `${country.code}-${Date.now()}-${indexOffset}`,
+    country: country.name,
+    code: country.code,
+    category: country.category,
+    subtitle: country.visaType,
+    date: dateStr,
+    color: country.color,
+    rotation: Math.round(randomAngle * 10) / 10,
+    xPercent: Math.min(80, Math.max(22, country.defaultAnchor.x + jitterX)),
+    yPercent: Math.min(82, Math.max(25, country.defaultAnchor.y + jitterY)),
+    shape: country.shape,
+  };
+}
 
 export default function HeroSection() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollY } = useScroll();
-  const textY = useTransform(scrollY, [0, 500], [0, -60]);
-  const opacity = useTransform(scrollY, [0, 380], [1, 0]);
+  const [selectedCountry, setSelectedCountry] = useState<string>("Canada");
+  const [fields, setFields] = useState<PassportFields>({
+    country: "Canada",
+    visaType: "Student Visa (V-1)",
+    validFor: "Duration of studies + 90 days",
+    processingTime: "7–11 weeks typical (IRCC)",
+    authority: "Ahmedabad Hub (Est. 2017)",
+  });
+
+  // A first stamp auto-lands on page load so the page isn't empty
+  const [stamps, setStamps] = useState<StampData[]>(() => [createStampData(COUNTRIES[0], 0)]);
+  const [shakeKey, setShakeKey] = useState<number>(0);
+
+  const handleCountryClick = (country: CountryConfig) => {
+    setSelectedCountry(country.name);
+    setFields({
+      country: country.name,
+      visaType: country.visaType,
+      validFor: country.validFor,
+      processingTime: country.processingTime,
+      authority: "Ahmedabad Hub (Est. 2017)",
+    });
+
+    // Check if country already exists on page; if so, replace or add natural layer
+    setStamps((prev) => {
+      const filtered = prev.filter((s) => s.country !== country.name);
+      const newStamp = createStampData(country, filtered.length);
+      return [...filtered, newStamp];
+    });
+
+    // Trigger physical passport page stamp thud shake
+    setShakeKey((prev) => prev + 1);
+  };
+
+  const handleClearPage = () => {
+    setStamps([]);
+    setFields({
+      country: "",
+      visaType: "",
+      validFor: "",
+      processingTime: "",
+      authority: "Ahmedabad Hub (Est. 2017)",
+    });
+  };
+
+  // TODO: Add verified approval counts here once the audited 2026 dataset is finalized.
 
   return (
     <section
-      ref={ref}
-      className="relative min-h-screen flex flex-col justify-between bg-[#060D1F] text-white overflow-hidden"
+      className={`relative min-h-[85vh] lg:min-h-screen bg-[#EDEFF2] text-[#14213D] pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-16 lg:pb-20 flex flex-col justify-center overflow-x-clip ${hanken.className}`}
     >
-
-      {/* ── Fine grid lines ── */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
-      />
-
-      {/* ── Subtle corner glow ── */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
-        style={{ background: "radial-gradient(circle at top right, rgba(232,93,4,0.10) 0%, transparent 65%)" }} />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] pointer-events-none"
-        style={{ background: "radial-gradient(circle at bottom left, rgba(10,36,99,0.30) 0%, transparent 65%)" }} />
-
-      {/* ── Vertical side label (editorial detail) ── */}
-      <div className="hidden lg:flex absolute left-8 top-1/2 -translate-y-1/2 flex-col items-center gap-4 z-20 select-none">
-        <div className="w-px h-16 bg-white/10" />
-        <span
-          className="text-[10px] font-semibold tracking-[0.22em] text-white/25 uppercase"
-          style={{ writingMode: "vertical-rl", fontFamily: "Inter, sans-serif" }}
-        >
-          EST. 2017 · AHMEDABAD
-        </span>
-        <div className="w-px h-16 bg-white/10" />
-      </div>
-
-      {/* ── Ghost display word (typographic texture) ── */}
-      <div
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+      {/* Subtle paper grain SVG pattern */}
+      <svg
+        className="absolute inset-0 w-full h-full opacity-[0.035] pointer-events-none select-none z-0"
+        xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
-        <span
-          className="text-[22vw] font-extrabold tracking-[-0.04em] text-white/[0.025] leading-none"
-          style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
-        >
-          VISA
-        </span>
-      </div>
+        <filter id="hero-paper-noise">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.65"
+            numOctaves="3"
+            stitchTiles="stitch"
+          />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#hero-paper-noise)" />
+      </svg>
 
-      {/* ═════ MAIN CONTENT ═════ */}
-      <motion.div
-        style={{ y: textY, opacity }}
-        className="relative z-10 flex flex-col justify-center flex-1 max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-20 pt-36 pb-16"
-      >
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-8 lg:px-12">
+        {/* Unified Editorial Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          {/* ════ LEFT COLUMN: CONTENT & CONTROLS ════ */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
+            {/* Headline: characterful serif via Newsreader, sentence case, all one colour, strictly under 2 lines on desktop */}
+            <h1
+              className={`${newsreader.className} text-[1.62rem] min-[360px]:text-[1.72rem] sm:text-3xl lg:text-[2.6rem] xl:text-[2.95rem] font-normal text-[#14213D] leading-[1.12] tracking-[-0.02em] mb-3.5 max-w-2xl break-words`}
+            >
+              Visas that get approved the first time.
+            </h1>
 
-        {/* Top eyebrow line */}
-        <motion.div
-          initial={{ opacity: 0, x: -16 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex items-center gap-3 mb-10"
-        >
-          <div className="w-6 h-px bg-[#E85D04]" />
-          <span
-            className="text-[11px] font-bold tracking-[0.25em] text-[#E85D04] uppercase"
-            style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
-          >
-            Naksh Global Visa · Trusted Consultancy
-          </span>
-        </motion.div>
+            {/* One-sentence supporting line */}
+            <p className="text-[13.5px] sm:text-base lg:text-lg text-[#14213D]/75 leading-relaxed max-w-xl mb-5 sm:mb-6 font-normal">
+              We prepare, verify, and file student, work, and visitor visa applications
+              from Ahmedabad with certified consular accuracy.
+            </p>
 
-        {/* Headline — staggered per line */}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          animate="show"
-          className="mb-10 overflow-hidden"
-        >
-          {/* Line 1 — Outline style */}
-          <motion.h1
-            variants={line}
-            className="text-[clamp(3rem,7.5vw,7rem)] font-extrabold leading-[0.95] tracking-[-0.04em]"
-            style={{
-              fontFamily: "Plus Jakarta Sans, sans-serif",
-              WebkitTextStroke: "1.5px rgba(255,255,255,0.8)",
-              color: "transparent",
-            }}
-          >
-            Your Visa.
-          </motion.h1>
+            {/* Country Chips Selector */}
+            <div className="w-full mb-6 lg:mb-8">
+              <span className="block text-[11px] sm:text-xs font-semibold text-[#14213D]/60 uppercase tracking-wider mb-2">
+                Select a destination to stamp:
+              </span>
+              <div
+                className="flex flex-wrap gap-2"
+                role="group"
+                aria-label="Select destination country"
+              >
+                {COUNTRIES.map((country) => {
+                  const isSelected = selectedCountry === country.name;
+                  return (
+                    <button
+                      key={country.name}
+                      type="button"
+                      aria-pressed={isSelected}
+                      onClick={() => handleCountryClick(country)}
+                      className={`px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors duration-150 border focus:outline-none focus:ring-2 focus:ring-[#14213D] focus:ring-offset-2 focus:ring-offset-[#EDEFF2] ${
+                        isSelected
+                          ? "bg-[#14213D] text-[#EDEFF2] border-[#14213D] shadow-sm"
+                          : "bg-white/85 text-[#14213D] border-[#14213D]/25 hover:border-[#14213D] hover:bg-white"
+                      }`}
+                    >
+                      {country.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
 
-          {/* Line 2 — Solid white, bigger */}
-          <motion.h1
-            variants={line}
-            className="text-[clamp(3.2rem,8.5vw,8rem)] font-extrabold leading-[0.95] tracking-[-0.04em] text-white"
-            style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
-          >
-            Done Right.
-          </motion.h1>
+            {/* Primary & Secondary CTAs (Desktop view) */}
+            <div className="hidden lg:flex items-center gap-6 pt-1">
+              <Link
+                href="/free-assessment"
+                className="inline-flex items-center justify-center px-6 py-3.5 bg-[#14213D] hover:bg-[#1F4E8C] text-[#EDEFF2] text-sm font-semibold rounded-md transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-[#14213D] focus:ring-offset-2 focus:ring-offset-[#EDEFF2]"
+              >
+                Book a free consultation
+              </Link>
 
-          {/* Line 3 — Orange accent, lighter weight */}
-          <motion.h1
-            variants={line}
-            className="text-[clamp(2.4rem,6vw,5.5rem)] font-light leading-[1.1] tracking-[-0.02em]"
-            style={{
-              fontFamily: "Plus Jakarta Sans, sans-serif",
-              color: "#E85D04",
-            }}
-          >
-            Every time.
-          </motion.h1>
-        </motion.div>
+              <Link
+                href="/services"
+                className="text-sm font-semibold text-[#14213D] hover:text-[#1F4E8C] underline underline-offset-4 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-[#14213D] rounded px-1"
+              >
+                See all services
+              </Link>
+            </div>
 
-        {/* Description + CTA row */}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          animate="show"
-          className="flex flex-col lg:flex-row lg:items-end gap-8 lg:gap-16"
-        >
-          {/* Description */}
-          <motion.p
-            variants={fade}
-            className="text-[#94A3B8] text-base sm:text-lg leading-relaxed max-w-md"
-            style={{ fontFamily: "Inter, sans-serif" }}
-          >
-            End-to-end visa support — from eligibility to approval. Study, work,
-            or travel to 25+ countries with zero guesswork and expert-verified documentation.
-          </motion.p>
+            {/* Direct Telephone Helpline Notice (Desktop view) */}
+            <div className="hidden lg:block mt-5 text-xs text-[#14213D]/65">
+              <span>Direct office enquiry: </span>
+              <a
+                href={`tel:${PHONE_NUMBER.replace(/\s+/g, "")}`}
+                className="font-semibold text-[#14213D] hover:underline"
+              >
+                {PHONE_NUMBER}
+              </a>
+              <span className="ml-2 text-[#14213D]/45">· Naroda, Ahmedabad</span>
+            </div>
+          </div>
 
-          {/* CTA block */}
-          <motion.div variants={fade} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:ml-auto lg:flex-shrink-0">
+          {/* ════ CENTER / RIGHT: PASSPORT PAGE ════ */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end w-full">
+            <PassportPage
+              fields={fields}
+              stamps={stamps}
+              onClear={handleClearPage}
+              shakeKey={shakeKey}
+            />
+          </div>
+
+          {/* ════ MOBILE CTAs: Stacks cleanly after passport page on mobile ════ */}
+          <div className="lg:hidden col-span-1 flex flex-col items-stretch sm:items-center gap-3.5 pt-4 border-t border-[#14213D]/10 w-full">
             <Link
               href="/free-assessment"
-              className="group inline-flex items-center gap-2.5 px-7 py-4 bg-[#E85D04] text-white text-sm font-bold rounded-lg transition-all duration-300 hover:bg-[#C44B00] hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(232,93,4,0.40)]"
-              style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
+              className="w-full sm:w-auto text-center px-6 py-3.5 bg-[#14213D] hover:bg-[#1F4E8C] text-[#EDEFF2] text-sm font-semibold rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-[#14213D]"
             >
-              <CalendarCheck className="w-4 h-4" />
-              Book Free Consultation
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              Book a free consultation
             </Link>
 
             <Link
               href="/services"
-              className="inline-flex items-center gap-1.5 text-[#94A3B8] text-sm font-medium hover:text-white transition-colors group"
-              style={{ fontFamily: "Inter, sans-serif" }}
+              className="text-center text-sm font-semibold text-[#14213D] hover:text-[#1F4E8C] underline underline-offset-4 transition-colors"
             >
               See all services
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </Link>
-          </motion.div>
-        </motion.div>
-      </motion.div>
 
-      {/* ═════ BOTTOM BAR ═════ */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.7 }}
-        className="relative z-10 border-t border-white/[0.07]"
-      >
-        {/* Stats row */}
-        <div className="max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-20 py-6 grid grid-cols-2 sm:grid-cols-4 gap-6 border-b border-white/[0.05]">
-          {figures.map((f) => (
-            <div key={f.num}>
-              <div
-                className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight"
-                style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
+            <p className="text-center text-xs text-[#14213D]/60 pt-1">
+              Direct enquiry:{" "}
+              <a
+                href={`tel:${PHONE_NUMBER.replace(/\s+/g, "")}`}
+                className="font-semibold text-[#14213D]"
               >
-                {f.num}
-              </div>
-              <div className="text-[#475569] text-xs font-medium mt-0.5 uppercase tracking-wider" style={{ fontFamily: "Inter, sans-serif" }}>
-                {f.desc}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Destination ticker — static scroll */}
-        <div className="max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-20 py-5 overflow-x-auto scrollbar-hide">
-          <div className="flex items-center gap-6 whitespace-nowrap">
-            <span
-              className="text-[10px] font-bold tracking-[0.2em] text-[#334155] uppercase flex-shrink-0"
-              style={{ fontFamily: "Inter, sans-serif" }}
-            >
-              We serve
-            </span>
-            <div className="w-px h-4 bg-white/10 flex-shrink-0" />
-            {destinations.map((d, i) => (
-              <span
-                key={d.name}
-                className="inline-flex items-center gap-2 text-[#64748B] text-sm font-medium flex-shrink-0 hover:text-white transition-colors cursor-default"
-                style={{ fontFamily: "Inter, sans-serif" }}
-              >
-                <span className="text-base">{d.flag}</span>
-                {d.name}
-                {i < destinations.length - 1 && (
-                  <span className="ml-6 text-[#1E293B] select-none">·</span>
-                )}
-              </span>
-            ))}
+                {PHONE_NUMBER}
+              </a>
+            </p>
           </div>
         </div>
-      </motion.div>
-
+      </div>
     </section>
   );
 }
